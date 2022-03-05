@@ -1,0 +1,8 @@
+\contentsline {chapter}{\numberline {1} Cryptography }{2}%
+\contentsline {section}{\numberline {1.1} What is cryptography}{2}%
+\contentsline {section}{\numberline {1.2}Usage of cryptography}{3}%
+\contentsline {section}{\numberline {1.3}Types of cryptography}{9}%
+\contentsline {subsection}{\numberline {1.3.1}Symmetric Key Cryptography:}{9}%
+\contentsline {subsection}{\numberline {1.3.2}Hash Functions:}{9}%
+\contentsline {subsection}{\numberline {1.3.3}Asymmetric Key Cryptography:}{9}%
+\contentsline {section}{\numberline {1.4}History of cryptography}{9}%

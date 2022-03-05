@@ -21,4 +21,46 @@ Cipher: DEFGHIJKLMNOPQRSTUVWXYZABC
 
 \section
 
+For 900 years the monoalphabetic substitution cipher was the strongest cipher sys-
+tem in the Western world. The Romans used it regularly to protect their far-flung
+lines of communication. But after the fall of the Western Roman Empire in 476 C.E.
+the knowledge of cryptology vanished from the West and wasn’t to return until the
+Renaissance. Indeed, with the decline of literacy and scholarship in Europe during
+the Dark Ages following the fall of Rome cryptology turned from a useful technique
+for keeping communications secret into a dark art that bordered on magic.
+But interest in cryptology was not dead. In the latter part of the first millennium,
+there was another place where intellectual curiosity and scholarship flowered and
+where mathematics and cryptology saw their biggest advances since Caesar – the
+Arab world. And it was the Arab world from which the next big advance in crypt-
+analytic techniques would come.
+The period around the ninth century C.E. is considered to be the beginning of the
+Islamic Golden Age, when philosophy, science, literature, mathematics, and reli-
+gious studies all flourished in what was then the peace and prosperity of the Abbasid
+Caliphate. Into this period was born Abu Yūsuf Ya-qūb ibn Isāq as-Sabbāh al-Kindi
+(801–873 C.E.), a polymath who was the philosopher of the age. Al-Kindi wrote
+books in many disciplines including astronomy, optics, philosophy, mathematics,
+medicine, and linguistics, but his book on secret messages for court secretaries, A
+Manuscript on Deciphering Cryptographic Messages is the most important to the
+history of cryptology. It is in this book that the technique of frequency analysis is
+first described.
+
+
+
+
+
+Although cryptography has a long and complex history, it wasn't until the 19th century that it developed anything more than ad hoc approaches to either encryption or cryptanalysis (the science of finding weaknesses in crypto systems). Examples of the latter include Charles Babbage's Crimean War era work on mathematical cryptanalysis of polyalphabetic ciphers, redeveloped and published somewhat later by the Prussian Friedrich Kasiski. Understanding of cryptography at this time typically consisted of hard-won rules of thumb; see, for example, Auguste Kerckhoffs' cryptographic writings in the latter 19th century. Edgar Allan Poe used systematic methods to solve ciphers in the 1840s. In particular he placed a notice of his abilities in the Philadelphia paper Alexander's Weekly (Express) Messenger, inviting submissions of ciphers, of which he proceeded to solve almost all. His success created a public stir for some months.[24] He later wrote an essay on methods of cryptography which proved useful as an introduction for novice British cryptanalysts attempting to break German codes and ciphers during World War I, and a famous story, The Gold-Bug, in which cryptanalysis was a prominent element.
+
+Cryptography, and its misuse, were involved in the execution of Mata Hari and in Dreyfus' conviction and imprisonment, both in the early 20th century. Cryptographers were also involved in exposing the machinations which had led to the Dreyfus affair; Mata Hari, in contrast, was shot.
+
+In World War I the Admiralty's Room 40 broke German naval codes and played an important role in several naval engagements during the war, notably in detecting major German sorties into the North Sea that led to the battles of Dogger Bank and Jutland as the British fleet was sent out to intercept them. However its most important contribution was probably in decrypting the Zimmermann Telegram, a cable from the German Foreign Office sent via Washington to its ambassador Heinrich von Eckardt in Mexico which played a major part in bringing the United States into the war.
+
+In 1917, Gilbert Vernam proposed a teleprinter cipher in which a previously prepared key, kept on paper tape, is combined character by character with the plaintext message to produce the cyphertext. This led to the development of electromechanical devices as cipher machines, and to the only unbreakable cipher, the one time pad.
+
+During the 1920s, Polish naval-officers assisted the Japanese military with code and cipher development.
+
+Mathematical methods proliferated in the period prior to World War II (notably in William F. Friedman's application of statistical techniques to cryptanalysis and cipher development and in Marian Rejewski's initial break into the German Army's version of the Enigma system in 1932).
+
+
+
+
 
