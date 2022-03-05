@@ -1,0 +1,24 @@
+Cryptology was well established in ancient times, with both Greeks and
+Romans practicing different forms of cryptography. With the fall of the Roman
+Empire, cryptology was largely lost in the West until the Renaissance, but it flour-
+ished in the Arabic world. The Arabs invented the first reliable tool for cryptanaly-
+sis, frequency analysis. With the end of the Middle Ages and the increase in
+commerce and diplomacy, cryptology enjoyed a Renaissance of it’s own in the
+West
+
+\section
+
+Julius Caesar, probably the greatest of all Roman generals, was no stranger to cryp-
+tology. In his famous Commentary on the Gallic Wars, Caesar himself describes
+using a form of a cipher to hide a message If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the
+letters of the alphabet, that not a word could be made out. If anyone wishes to deci-
+pher these, and get at their meaning, he must substitute the fourth letter of the alpha-
+bet, namely D, for A, and so with the others.” (Seutonius 1957, Ch. 56) This is the
+first written description of the modern monoalphabetic substitution cipher using a
+shifted standard alphabet. Using Caesar’s cipher, the cipher alphabet looks like
+Plain: abcdefghijklmnopqrstuvwxyz
+Cipher: DEFGHIJKLMNOPQRSTUVWXYZABC
+
+\section
+
+
