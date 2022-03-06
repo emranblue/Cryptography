@@ -1,6 +1,7 @@
 \documentclass{report}
 \usepackage[margin=1.3 in]{geometry}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \begin{document}
 \tableofcontents
 \chapter{ Cryptography }
@@ -126,6 +127,7 @@ history of cryptology. It is in this book that the technique of frequency analys
 first described.}
 
 \begin{center}
+
 \includegraphics[scale=0.6]{"al_kindi.png"}
 \end{center}
 
@@ -139,7 +141,71 @@ In World War I the Admiralty's Room 40 broke German naval codes and played an im
 In 1917, Gilbert Vernam proposed a teleprinter cipher in which a previously prepared key, kept on paper tape, is combined character by character with the plaintext message to produce the cyphertext. This led to the development of electromechanical devices as cipher machines, and to the only unbreakable cipher, the one time pad.
 
 During the 1920s, Polish naval-officers assisted the Japanese military with code and cipher development.
+\begin{center}
 
+\includegraphics[scale=0.3]{"enigma.png"}
+\end{center}
 Mathematical methods proliferated in the period prior to World War II (notably in William F. Friedman's application of statistical techniques to cryptanalysis and cipher development and in Marian Rejewski's initial break into the German Army's version of the Enigma system in 1932).}
+
+\begin{center}
+\includegraphics[scale=0.8]{"rajewski.png"}
+\end{center}
+\section{The Math Behind Cryptography}
+\Large{Secrecy systems based on modular arithmetic. The first of these
+had its origin with Julius Caesar; the newest systems that we will discuss were invented
+in the late 1970s. In all these systems, we start by translating letters into numbers. We
+take as our standard alphabet the letters of English and translate them into the integers
+from 0 to 25, as shown below}
+\begin{center}
+
+\includegraphics[scale=0.5]{"table.png"}
+\end{center}
+
+\Large{Of course, if we were sending messages in Russian, Greek, Hebrew, or any other
+language, we would use the appropriate alphabet and range of integers. Also, we may
+want to include all ASCII characters, including punctuation marks, a symbol to indicate
+blanks, and the digits for representing numbers as part of the message. However, for
+the sake of simplicity, we restrict ourselves to the letters of the English alphabet. The
+transformation of letters to numbered equivalents can be done in many other ways
+(including translation to bit strings). Here we have chosen a simple and easily understood
+transformation for simplicity.First, we discuss secrecy systems based on transforming each letter of the plaintext
+message into a different letter (or possibly the same) to produce the ciphertext. The en­
+cryption methods in these cryptosystems are called character, or monographic, ciphers,because each character is changed individually to another letter by a substitution. Alto­
+gether, there are 26 ! possible ways to produce a mono graphic transformation. We will
+discuss some particular monographic transformations based on modular arithmetic.
+Julius Caesar used a cipher based on the substitution in which each letter is replaced
+by the letter three further down the alphabet, with the last three letters shifted to the first
+three letters of the alphabet. To describe this cipher using modular arithmetic, let P be
+the numerical equivalent of a letter in the plaintext and C be the numerical equivalent of
+the corresponding ciphertext letter. Then
+
+$C \equiv P+3\pmod{26}$
+
+The correspondence between plaintext and ciphertext is given below}
+
+\begin{center}
+\includegraphics[scale=0.5]{"table2.png"}
+\end{center}
+
+\Large{To encrypt a message using this transformation, we first change it to its numerical
+equivalent, grouping letters in blocks of five. Then we transform each number. The group­
+ing of letters into blocks helps to prevent successful cryptanalysis based on recognizing
+particular words.}
+\subsection*{Affine Transformation}
+\Large{The Caesar cipher is one of a family of similar ciphers described by a shift transformation.
+$$C \equiv P+3\pmod{26}$$
+
+where k is the key representing the size of the shift of letters in the alphabet. There are
+26 different transformations of this type, including the case of $K\equiv 0\pmod{26}$
+Where letters are not altered, because in this case $C \equiv P\pmod{26}$ More generally, we will consider transformations of the type 
+$$C \equiv aP+b\pmod{26}$$ 
+Where a and b are integers with (a, 26) = 1. These are called affine transformations.Shift transformations are affine transformations with $a= 1$. We require that $(a, 26) = 1$,
+so that as P runs through a complete system of residues modulo 26, C also does. There
+are $\phi(26) = 12$ choices for a, and 26 choices for b, giving a total of $12*26 = 312$
+transformations of this type (one of these is $C \equiv P\pmod{26}$ obtained when $a = 1$ and
+b = 0). If the relationship between plaintext and ciphertext is described above then the inverse relationship is given by
+$$P \equiv a^*(C-b)\pmod{26}$$ 
+where $a^*$ is an inverse of a (mod 26), which can be found using the congruence $$a^* \equiv a^{\phi(26)-1} =a^{11}\pmod{26}$$.
+
 
 \end{document}
