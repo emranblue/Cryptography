@@ -207,5 +207,79 @@ b = 0). If the relationship between plaintext and ciphertext is described above 
 $$P \equiv a^*(C-b)\pmod{26}$$ 
 where $a^*$ is an inverse of a (mod 26), which can be found using the congruence $$a^* \equiv a^{\phi(26)-1} =a^{11}\pmod{26}$$.
 
+\chapter{Application Of Cryptography }
+\section{Network Security}
+\Large{Secure communication through computer is very important in our modern days.Cryptography can handle the problem of secure communication.Let us introduce Alice and Bob, two people who want to communicate and wish
+to do so securely.But what does it precisely mean to communicate securely!!.
+\begin{itemize}
+\item Alice wants only Bob to be able to understand a message that she has sent, even
+though they are communicating over an insecure medium where an intruder (Trudy,
+the intruder) may intercept whatever is transmitted from Alice to Bob.
+\item Bob also
+wants to be sure that the message he receives from Alice was indeed sent by Alice,
+and Alice wants to make sure that the person with whom she is communicating is
+indeed Bob.
+\end{itemize}
+\includegraphics[scale=0.5]{"seccom.png"}
 
+}
+\section{Public Key Encryption}
+\Large{The use of public key cryptography is conceptually quite simple. Suppose Alice
+wants to communicate with Bob. Rather than Bob and Alice
+sharing a single secret key (as in the case of symmetric key systems), Bob (the recipi-
+ent of Alice’s messages) instead has two keys—a public key that is available to
+everyone in the world (including Trudy the intruder) and a private key that is known
+only to Bob. We will use the notation $K_B^+$ and $K_B^-$ to refer to Bob’s public and pri-
+vate keys, respectively. In order to communicate with Bob, Alice first fetches Bob’s
+public key. Alice then encrypts her message, m, to Bob using Bob’s public key and
+a known (for example, standardized) encryption algorithm; that is, Alice computes
+$K_B^+ (m)$. Bob receives Alice’s encrypted message and uses his private key and a known
+(for example, standardized) decryption algorithm to decrypt Alice’s encrypted mes-
+sage. That is, Bob computes $K_B^- (K_B^+ (m))$. We will see below that there are encryption
+decryption algorithms and techniques for choosing public and private keys such that
+$K_B^- (K_B^+ (m)) = m$; that is, applying Bob’s public key, $K_B^+$ , to a message, m (to get
+$K_B^+ (m))$, and then applying Bob’s private key, $K_B^-$ , to the encrypted version of m (that
+is, computing $K_B^- (K_B^+ (m)))$ gives back m. This is a remarkable result! In this manner,
+Alice can use Bob’s publicly available key to send a secret message to Bob without
+either of them having to distribute any secret keys! We will see shortly that we can
+interchange the public key and private key encryption and get the same remarkable
+result––that is, $K_B^- (K_B^+ (m)) = K_B^+ (K_B^- (m)) = m$.
+}
+\newline
+\newline
+
+\includegraphics[scale=0.5]{"keygen.png"}
+
+\Large{Although public-key cryptography is appealing, one concern immediately
+springs to mind. Since Bob’s encryption key is public, anyone can send an encrypted message to Bob, including Alice or someone pretending to be Alice. In the case of
+a single shared secret key, the fact that the sender knows the secret key implicitly
+identifies the sender to the receiver. In the case of public key cryptography, however,
+this is no longer the case since anyone can send an encrypted message to Bob using
+Bob’s publicly available key. We introduce digital signature to solve this problem.
+\subsection*{RSA}
+\Large{While there may be many algorithms that address these concerns, the RSA algorithm
+(named after its founders, Ron Rivest, Adi Shamir, and Leonard Adleman) has
+become almost synonymous with public key cryptography. Let’s first see how RSA
+works and then examine why it works.
+RSA makes extensive use of arithmetic operations using modulo-n arithmetic.
+So let’s briefly review modular arithmetic. Recall that x mod n simply means the
+remainder of x when divided by n; so, for example, 19 mod 5 = 4. In modular arith-
+metic, one performs the usual operations of addition, multiplication, and exponen-
+tiation. However, the result of each operation is replaced by the integer remainder
+that is left when the result is divided by n. Adding and multiplying with modular
+arithmetic is facilitated with the following handy facts:\newline
+\center{[(a mod n) + (b mod n)] mod n = (a + b) mod n}\newline
+\center{[(a mod n) - (b mod n)] mod n = (a - b) mod n}\newline
+\center{[(a mod n) * (b mod n)] mod n = (a * b) mod n}\newline
+
+\Large{t follows from the third fact that $(a\mod\n)^d mod n = a^d mod n$, which is an identity
+that we will soon find very useful.
+Now suppose that Alice wants to send to Bob an RSA-encrypted message, as
+shown in Figure 8.6. In our discussion of RSA, let’s always keep in mind that a mes-
+sage is nothing but a bit pattern, and every bit pattern can be uniquely represented by
+an integer number (along with the length of the bit pattern). For example, suppose
+a message is the bit pattern 1001; this message can be represented by the decimal
+integer 9. Thus, when encrypting a message with RSA, it is equivalent to encrypting
+the unique integer number that represents the message.
+There are two interrelated components of RSA
 \end{document}
