@@ -2,6 +2,7 @@
 \usepackage[margin=1.3 in]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage[most]{tcolorbox}
 \begin{document}
 \tableofcontents
 \chapter{ Cryptography }
@@ -19,7 +20,7 @@ Long before the information age, cryptography was used only to ensure secrecy of
 
 %---------usage------------------
 \section{Usage of cryptography}
-\subsection*{Secrecy in transmission}
+\subsection{Secrecy in transmission}
 \Large{The major goal of cryptography is to prevent data from being read by any third party. Most transmission systems use a private-key cryptosystem. This system uses a secret key to encrypt and decrypt data which is shared between the sender and receiver. The private keys are distributed and destroyed periodically. One must secure the key from unauthorized access, because any party that has the key can decrypt the encrypted information.}\\
 
 \begin{center}
@@ -33,7 +34,7 @@ Long before the information age, cryptography was used only to ensure secrecy of
 A better method is to use a public-key cryptosystem. In this system, data can be encrypted by anyone with the public-key, but it can be decrypted only by using the private-key, and data that is signed with the private key can be verified only with the public key. With the development of publickey systems, secrecy can be maintained without having to keep track of a large number of keys or sharing a common master-key. If, say, Alex wants to communicate with Neil, she first generates her public/private key pair and sends the public key to Neil over a non-secure channel. Neil  to encrypt information and sends it back to Alex. Only Alex has the private key with which she can decrypt the information. Anyone who intercepts the public key or the encrypted data can’t decrypt the message due to the protocols followed during information transfer.}
 
 
-\subsection*{Secrecy in storage}
+\subsection{Secrecy in storage}
 
 \Large{Storage encryption refers to the application of cryptographic techniques on data, both during transit and while on storage media. Storage encryption is gaining popularity among enterprises that use storage area networks (SANs). Secrecy in storage is maintained by storing data in encrypted form. The user has to provide the key to the computer only at the beginning of a session to access the data and it then takes care of encryption and decryption throughout the course of normal use. Hardware devices can also be used for PCs to automatically encrypt all information stored on disk. When the computer is turned on, the user must supply a key to the encryption hardware. The information is plain gibberish without its key thus preventing misuse if the disk is stolen.}
 
@@ -45,20 +46,20 @@ A better method is to use a public-key cryptosystem. In this system, data can be
 
 
 
-\subsection*{Integrity in transmission}
+\subsection{Integrity in transmission}
 \Large{We can use cryptography to provide a means to ensure that data is not altered during transmission, i.e. its integrity is preserved. In electronic funds transfer, it is very important that integrity be maintained. A bank can lose millions if a transaction is illicitly intercepted. Cryptographic techniques are employed to prevent accidental or intentional modification of data during transmission, leading to erroneous actions. One of the ways to ensure integrity is to perform a checksum on the information being transmitted and to transmit the checksum in an encrypted form as well.
 
 The information is received on the other end and again checksummed. The transmitted checksum is decrypted and compared with the previous checksum. If the checksums agree, the information is most likely unaltered. The problem with this scheme is that the checksum of the original message can be known and another message with the same checksum can be generated and sent instead of the original one. This problem can be overcome by using a public-key cryptosystem. After generating the public-key/private-key pair, if we throw away the private-key and use only the public-key to encrypt the checksum, the checksum becomes impossible to decrypt. In order to verify the checksum, we generate a new checksum for the received information, encrypt it using the public-key and match it with the encrypted checksum. This is also known as a one-way function as it is hard to invert.}
 
-\subsection*{Integrity in storage}
+\subsection{Integrity in storage}
 
 \Large{Integrity in storage had been ensured by access control systems with lock and keys and other guards to prevent unauthorized access to stored data. The existence of computer viruses has changed the scenario and the need of integrity against intentional attack has become a problem of epic proportions. Cryptographic checksums to ascertain validity of stored data are of help here. As in the case of transmission, a cryptographic checksum is produced and compared to the expected value. However, storage media are more vulnerable to attacks than transmission channels due to longer exposure and larger volumes of information.}
 
 
-\subsection*{Authentication of identity}
+\subsection{Authentication of identity}
 \Large{Authentication is the process of verifying if the user has enough authority for data access. Simple passwords are used to identify someone. You must also have seen in classic gangster movies, the exchange of keywords to prove identity. Cryptography is similar to the practice of providing passwords for identity authentication. Modern systems use cryptographic transforms in conjunction with other characteristics of individuals to provide more reliable and efficient authentication of identity. Many systems allow passwords to be stored in an encrypted form, with read access available to all programs which may use them. Since passwords are not stored as plaintext, an accidental of data doesn’t compromise the system’s security.Passwords are analogous to the key in a cryptosystem that allows encryption and decryption of anything the password has access to. The principal element of this system is the password selection process. And that’s a whole other subject that we can’t cover here. But in a nutshell, the longer the password, the more random it will be and the harder it is to guess. So if you think it’s easy for you to remember, you should know that it will be all the easier to crack.}
 
-\subsection*{Digital signatures}
+\subsection{Digital signatures}
 
 \Large{A digital signature is a mechanism by which a message is authenticated i.e. proving that a message is coming from a given sender, much like a signature on a paper document. To be as effective as a signature on paper, digital signatures must be hard to forge and accepted in a court of law as binding upon all parties to the transaction. The need for digital signatures arises when the parties dealing in a transaction are not physically close, and the volume of paperwork is high, in other words big business dealings. Digital signatures can be created using a public key cryptosystem and hashing process. }\\
 \begin{center}
@@ -191,7 +192,7 @@ The correspondence between plaintext and ciphertext is given below}
 equivalent, grouping letters in blocks of five. Then we transform each number. The group­
 ing of letters into blocks helps to prevent successful cryptanalysis based on recognizing
 particular words.}
-\subsection*{Affine Transformation}
+\subsection{Affine Transformation}
 \Large{The Caesar cipher is one of a family of similar ciphers described by a shift transformation.
 $$C \equiv P+3\pmod{26}$$
 
@@ -256,7 +257,7 @@ a single shared secret key, the fact that the sender knows the secret key implic
 identifies the sender to the receiver. In the case of public key cryptography, however,
 this is no longer the case since anyone can send an encrypted message to Bob using
 Bob’s publicly available key. We introduce digital signature to solve this problem.
-\subsection*{RSA}
+\subsection{RSA}
 \Large{While there may be many algorithms that address these concerns, the RSA algorithm
 (named after its founders, Ron Rivest, Adi Shamir, and Leonard Adleman) has
 become almost synonymous with public key cryptography. Let’s first see how RSA
@@ -267,19 +268,99 @@ remainder of x when divided by n; so, for example, 19 mod 5 = 4. In modular arit
 metic, one performs the usual operations of addition, multiplication, and exponen-
 tiation. However, the result of each operation is replaced by the integer remainder
 that is left when the result is divided by n. Adding and multiplying with modular
-arithmetic is facilitated with the following handy facts:\newline
-\center{[(a mod n) + (b mod n)] mod n = (a + b) mod n}\newline
-\center{[(a mod n) - (b mod n)] mod n = (a - b) mod n}\newline
-\center{[(a mod n) * (b mod n)] mod n = (a * b) mod n}\newline
+arithmetic is facilitated with the following handy facts:}
+$$[(a \;mod \;n) \;+\; (b \;mod\; n)] \;mod \;n = (a \;+\; b) \;mod\; n$$
+$$[(a \;mod \;n) \;-\; (b\; mod \;n)]\; mod \;n = (a\; -\; b) \;mod \;n$$
+$$[(a\; mod\; n) * (b\; mod\; n)] \;mod \;n = (a * b) \;mod \;n$$
 
-\Large{t follows from the third fact that $(a\mod\n)^d mod n = a^d mod n$, which is an identity
+\Large{It follows from the third fact that (a mod n$)^d$ mod n = $a^d$ mod n, which is an identity
 that we will soon find very useful.
-Now suppose that Alice wants to send to Bob an RSA-encrypted message, as
-shown in Figure 8.6. In our discussion of RSA, let’s always keep in mind that a mes-
+Now suppose that Alice wants to send to Bob an RSA-encrypted message, let’s always keep in mind that a mes-
 sage is nothing but a bit pattern, and every bit pattern can be uniquely represented by
 an integer number (along with the length of the bit pattern). For example, suppose
 a message is the bit pattern 1001; this message can be represented by the decimal
 integer 9. Thus, when encrypting a message with RSA, it is equivalent to encrypting
 the unique integer number that represents the message.
 There are two interrelated components of RSA
+\begin{itemize}
+\item{The choice of the public key and the private key}
+\item{The encryption and decryption algorithm}
+\end{itemize}
+To generate the public and private RSA keys, Bob performs the following steps:
+\begin{enumerate}
+\item{Choose two large prime numbers, p and q. How large should p and q be? The
+larger the values, the more difficult it is to break RSA, but the longer it takes to perform the encoding and decoding. RSA Laboratories recommends that
+the product of p and q be on the order of 1,024 bits. For a discussion of how to
+find large prime numbers.}
+\item{Compute $n = pq$ and $z = (p - 1)(q - 1)$.}
+\item{Choose a number, e, less than n, that has no common factors (other than 1)
+with z. (In this case, e and z are said to be relatively prime.) The letter e is used
+since this value will be used in encryption.}
+\item{Find a number, d, such that ed - 1 is exactly divisible (that is, with no remainder)
+by z. The letter d is used because this value will be used in decryption. Put another
+way, given e, we choose d such that
+$$ed\;mod\;z = 1$$}
+\item{The public key that Bob makes available to the world, $K_B^+$ , is the pair of numbers
+(n, e); his private key, $K_B^-$ , is the pair of numbers (n, d).}
+\end{enumerate}
+
+The encryption by Alice and the decryption by Bob are done as follows:
+\begin{itemize}
+\item{Suppose Alice wants to send Bob a bit pattern represented by the integer number
+m (with m < n). To encode, Alice performs the exponentiation m e , and then
+computes the integer remainder when m e is divided by n. In other words, the
+encrypted value, c, of Alice’s plaintext message, m, is
+$$c=m^e\;mod\;n$$
+The bit pattern corresponding to this ciphertext c is sent to Bob.}
+
+\item{To decrypt the received ciphertext message, c, Bob computes
+$$m=c^d\;mod\;n$$}
+\end{itemize}
+
+As a simple example of RSA, suppose Bob chooses p = 5 and q = 7. (Admittedly,
+these values are far too small to be secure.) Then n = 35 and z = 24. Bob chooses
+e = 5, since 5 and 24 have no common factors. Finally, Bob chooses d = 29, since
+5 * 29 - 1 (that is, ed - 1) is exactly divisible by 24. Bob makes the two values, n = 35
+and e = 5, public and keeps the value d = 29 secret. Observing these two public
+values, suppose Alice now wants to send the letters l, o, v, and e to Bob. Interpreting
+each letter as a number between 1 and 26 (with a being 1, and z being 26), Alice and
+Bob perform the encryption and decryption respectively.
+Note that in this example, we consider each of the four letters as a distinct message.\newline
+\newline
+\bf{Encryption Phase}\newline
+\includegraphics[scale=0.5]{Rsatab}\newline
+\bf{Decryption Phase}\newline
+\includegraphics[scale=.5]{drcp}\newline
+}\newpage
+\subsection{How RSA Works!!}
+\Large{In order to understand why RSA works, again denote n = pq,
+where p and q are the large prime numbers used in the RSA algorithm.
+Recall that, under RSA encryption, a message (uniquely represented by an integer),
+m, is exponentiated to the power e using modulo-n arithmetic, that is,
+$$c = m^e\;mod\;n$$
+Decryption is performed by raising this value to the power d, again using modulo-n
+arithmetic. The result of an encryption step followed by a decryption step is thus
+$(m^e\;mod\;n)^d\;mod\;n$. Let’s now see what we can say about this quantity. As mentioned
+earlier, one important property of modulo arithmetic is $(a\;mod\;n)^d\;mod\;n = a^d\;mod\;n$
+for any values a, n, and d. Thus, using $a = m^e$ in this property, we have
+$$\LARGE{\bf{(m^e\;mod\;n)^d \;mod \;n = m^{ed} \;mod \;n}}$$
+It therefore remains to show that m ed mod n = m. Although we’re trying to
+remove some of the magic about why RSA works, to establish this, we’ll need to use a
+rather magical result from number theory here. Specifically, we’ll need the result that
+says if p and q are prime, n = pq, and z = (p - 1)(q - 1), then $x^y$ mod n is the same as
+$x^{(y \;mod \;z)}\; mod\; n$. Applying this result with x = m and y = ed we have
+$$m^{ed}\; mod\; n = m^{(ed\; mod \;z)}\; mod\; n$$
+But remember that we have chosen e and d such that ed mod z = 1. This gives us
+$$m^{ed} \;mod\; n = m^1\; mod\; n = \;m$$
+which is exactly the result we are looking for! By first exponentiating to the power of
+e (that is, encrypting) and then exponentiating to the power of d (that is, decrypting),
+we obtain the original value, m. Even more wonderful is the fact that if we first
+exponentiate to the power of d and then exponentiate to the power of e—that is, we
+reverse the order of encryption and decryption, performing the decryption operation
+first and then applying the encryption operation—we also obtain the original value,
+m. This wonderful result follows immediately from the modular arithmetic:
+$$(m^d \;mod\; n)^e\; mod \;n = m^{de}\; mod \;n = m^{ed}\; mod\; n = (m^e\; mod\; n)^d \;mod \;n$$
+
+}
+
 \end{document}
