@@ -2,7 +2,12 @@
 \usepackage[margin=1.3 in]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage[most]{tcolorbox}
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
+
 \begin{document}
 \tableofcontents
 \chapter{ Cryptography }
@@ -73,12 +78,193 @@ Another aspect of this system is the non-repudiation of digital signatures. Sinc
 \section{Types of cryptography}
 In general there are three types Of cryptography:
 \subsection{Symmetric Key Cryptography:}
-\Large{It is an encryption system where the sender and receiver of message use a single common key to encrypt and decrypt messages. Symmetric Key Systems are faster and simpler but the problem is that sender and receiver have to somehow exchange key in a secure manner. The most popular symmetric key cryptography system is Data Encryption System(DES).}
+\Large{It is an encryption system where the sender and receiver of message use a single common key to encrypt and decrypt messages. Symmetric Key Systems are faster and simpler but the problem is that sender and receiver have to somehow exchange key in a secure manner. The most popular symmetric key cryptography system is Data Encryption System(DES).
+
+All cryptographic algorithms involve substituting one thing for another, for exam-
+ple, taking a piece of plaintext and then computing and substituting the appropriate
+ciphertext to create the encrypted message. Before studying a modern key-based
+cryptographic system, let us first get our feet wet by studying a very old, very simple
+symmetric key algorithm attributed to Julius Caesar, known as the Caesar cipher
+(a cipher is a method for encrypting data).
+For English text, the Caesar cipher would work by taking each letter in the plain-
+text message and substituting the letter that is k letters later (allowing wraparound;
+that is, having the letter z followed by the letter a) in the alphabet. For example, if
+k = 3, then the letter a in plaintext becomes d in ciphertext; b in plaintext becomes
+e in ciphertext, and so on. Here, the value of k serves as the key. As an example, the
+plaintext message “bob, i love you. Alice” becomes “ere, l oryh
+brx. dolfh” in ciphertext. While the ciphertext does indeed look like gibberish,
+it wouldn’t take long to break the code if you knew that the Caesar cipher was being
+used, as there are only 25 possible key values.
+An improvement on the Caesar cipher is the monoalphabetic cipher, which also
+substitutes one letter of the alphabet with another letter of the alphabet. However,
+rather than substituting according to a regular pattern (e.g., substitution with an offset
+of k for all letters), any letter can be substituted for any other letter, as long as each
+letter has a unique substitute letter, and vice versa. The substitution rule in Figure 8.3
+shows one possible rule for encoding plaintext.
+The plaintext message “bob, i love you. Alice” becomes “nkn, s
+gktc wky. Mgsbc.” Thus, as in the case of the Caesar cipher, this looks like
+gibberish. A monoalphabetic cipher would also appear to be better than the Caesar
+cipher in that there are 26! (on the order of 10 26 ) possible pairings of letters rather
+than 25 possible pairings. A brute-force approach of trying all 10 26 possible pairings.\newline
+\includegraphics[scale=0.5]{plant}\newline
+would require far too much work to be a feasible way of breaking the encryption
+algorithm and decoding the message. However, by statistical analysis of the plain-
+text language, for example, knowing that the letters e and t are the most frequently
+occurring letters in typical English text (accounting for 13 percent and 9 percent of
+letter occurrences), and knowing that particular two-and three-letter occurrences of
+letters appear quite often together (for example, “in,” “it,” “the,” “ion,” “ing,” and so
+forth) make it relatively easy to break this code. If the intruder has some knowledge
+about the possible contents of the message, then it is even easier to break the code.
+For example, if Trudy the intruder is Bob’s wife and suspects Bob of having an
+affair with Alice, then she might suspect that the names “bob” and “alice” appear in
+the text. If Trudy knew for certain that those two names appeared in the ciphertext
+and had a copy of the example ciphertext message above, then she could immedi-
+ately determine seven of the 26 letter pairings, requiring 10 9 fewer possibilities to
+be checked by a brute-force method. Indeed, if Trudy suspected Bob of having an
+affair, she might well expect to find some other choice words in the message as well.
+When considering how easy it might be for Trudy to break Bob and Alice’s
+encryption scheme, one can distinguish three different scenarios, depending on what
+information the intruder has.
+
+\begin{itemize}
+\item{emph{Ciphertext-only attack.} In some cases, the intruder may have access only to the
+intercepted ciphertext, with no certain information about the contents of the plain-
+text message. We have seen how statistical analysis can help in a ciphertext-only
+attack on an encryption scheme.}
+\item{\emph{Known-plaintext attack.} We saw above that if Trudy somehow knew for sure
+that “bob” and “alice” appeared in the ciphertext message, then she could have
+determined the (plaintext, ciphertext) pairings for the letters a, l, i, c, e, b, and o.
+Trudy might also have been fortunate enough to have recorded all of the cipher-
+text transmissions and then found Bob’s own decrypted version of one of the
+transmissions scribbled on a piece of paper. When an intruder knows some of the
+(plaintext, ciphertext) pairings, we refer to this as a known-plaintext attack on
+the encryption scheme.}
+\item{\emph{Chosen-plaintext attack.} In a chosen-plaintext attack, the intruder is able to
+choose the plaintext message and obtain its corresponding ciphertext form. For
+the simple encryption algorithms we’ve seen so far, if Trudy could get Alice to
+send the message, “The quick brown fox jumps over the lazy
+dog,” she could completely break the encryption scheme. We’ll see shortly that
+for more sophisticated encryption techniques, a chosen-plaintext attack does not
+necessarily mean that the encryption technique can be broken.}
+\end{itemize}
+Five hundred years ago, techniques improving on monoalphabetic encryp-
+tion, known as polyalphabetic encryption, were invented. The idea behind
+polyalphabetic encryption is to use multiple monoalphabetic ciphers, with a specific
+\newline
+\includegraphics[scale=0.5]{polycs}\newline
+
+\subsubsection{Block Ciphers}
+Let us now move forward to modern times and examine how symmetric key encryp-
+tion is done today. We focus on block ciphers, which are used in many secure Internet
+protocols, including PGP (for secure e-mail), TLS (for securing TCP connections),
+and IPsec (for securing the network-layer transport).
+In a block cipher, the message to be encrypted is processed in blocks of k bits.
+For example, if k = 64, then the message is broken into 64-bit blocks, and each block
+is encrypted independently. To encode a block, the cipher uses a one-to-one map-
+ping to map the k-bit block of cleartext to a k-bit block of ciphertext. Let’s look at an
+example. Suppose that k = 3, so that the block cipher maps 3-bit inputs (cleartext)
+to 3-bit outputs (ciphertext). One possible mapping is given in Table 8.1. Notice that
+this is a one-to-one mapping; that is, there is a different output for each input. This
+block cipher breaks the message up into 3-bit blocks and encrypts each block accord-
+ing to the above mapping. You should verify that the message 010110001111 gets
+encrypted into 101000111001.
+Continuing with this 3-bit block example, How many possible mappings are
+there? To answer this question, observe that a mapping is nothing more than a permu-
+tation of all the possible inputs. There are $2^3 (= 8)$ possible inputs (listed under the
+\includegraphics[scale=0.5]{block}\newline
+input columns). These eight inputs can be permuted in 8! = 40,320 different ways.
+Since each of these permutations specifies a mapping, there are 40,320 possible map-
+pings. We can view each of these mappings as a key—if Alice and Bob both know
+the mapping (the key), they can encrypt and decrypt the messages sent between them.
+The brute-force attack for this cipher is to try to decrypt ciphtertext by using all
+mappings. With only 40,320 mappings (when k = 3), this can quickly be accom-
+plished on a desktop PC. To thwart brute-force attacks, block ciphers typically use
+much larger blocks, consisting of k = 64 bits or even larger. Note that the number of
+possible mappings for a general k-block cipher is 2 k !, which is astronomical for even
+moderate values of k (such as k = 64).
+Although full-table block ciphers, as just described, with moderate values of k
+can produce robust symmetric key encryption schemes, they are unfortunately dif-
+ficult to implement. For k = 64 and for a given mapping, Alice and Bob would need to
+maintain a table with 2 64 input values, which is an infeasible task. Moreover, if Alice
+and Bob were to change keys, they would have to each regenerate the table. Thus,
+a full-table block cipher, providing predetermined mappings between all inputs and
+outputs (as in the example above), is simply out of the question.
+Instead, block ciphers typically use functions that simulate randomly permuted
+tables. An example (adapted from [Kaufman 2002]) of such a function for k = 64 bits
+is shown in Figure 8.5. The function first breaks a 64-bit block into 8 chunks, with
+each chunk consisting of 8 bits. Each 8-bit chunk is processed by an 8-bit to 8-bit
+table, which is of manageable size. For example, the first chunk is processed by the
+table denoted by T 1 . Next, the 8 output chunks are reassembled into a 64-bit block.
+The positions of the 64 bits in the block are then scrambled (permuted) to produce a
+64-bit output. This output is fed back to the 64-bit input, where another cycle begins.
+After n such cycles, the function provides a 64-bit block of ciphertext. The purpose
+of the rounds is to make each input bit affect most (if not all) of the final output bits.
+(If only one round were used, a given input bit would affect only 8 of the 64 output
+bits.) The key for this block cipher algorithm would be the eight permutation tables
+(assuming the scramble function is publicly known).
+Today there are a number of popular block ciphers, including DES (standing
+for Data Encryption Standard), 3DES, and AES (standing for Advanced Encryption Standard). Each of these standards uses functions, rather than predetermined tables,
+along the lines of Figure 8.5 (albeit more complicated and specific to each cipher).
+Each of these algorithms also uses a string of bits for a key. For example, DES uses
+64-bit blocks with a 56-bit key. AES uses 128-bit blocks and can operate with keys
+that are 128, 192, and 256 bits long. An algorithm’s key determines the specific
+“mini-table” mappings and permutations within the algorithm’s internals. The brute-
+force attack for each of these ciphers is to cycle through all the keys, applying the
+decryption algorithm with each key. Observe that with a key length of n, there are 2 n
+possible keys. NIST [NIST 2001] estimates that a machine that could crack 56-bit
+DES in one second (that is, try all 2 56 keys in one second) would take approximately 149
+trillion years to crack a 128-bit AES key.\newline
+
+\includegraphics[scale=0.5]{newblock}
+
+
+}
 \subsection{Hash Functions:}
-\Large{There is no usage of any key in this algorithm. A hash value with fixed length is calculated as per the plain text which makes it impossible for contents of plain text to be recovered. Many operating systems use hash functions to encrypt passwords.}
+\Large{There is no usage of any key in this algorithm. A hash value with fixed length is calculated as per the plain text which makes it impossible for contents of plain text to be recovered. Many operating systems use hash functions to encrypt passwords.
+a hash function takes an input, m, and computes a fixed-size
+string H(m) known as a hash. A cryptographic hash function is required to have the follow-
+ing additional property:
+\begin{itemize}
+\item{It is computationally infeasible to find any two different messages x and y such
+that H(x) = H(y).}
+\end{itemize}
+Informally, this property means that it is computationally infeasible for an
+intruder to substitute one message for another message that is protected by the hash
+function. That is, if (m, H(m)) are the message and the hash of the message created
+by the sender, then an intruder cannot forge the contents of another message, y, that
+has the same hash value as the original message.
+Let’s convince ourselves that a simple checksum, such as the Internet checksum,
+would make a poor cryptographic hash function. Rather than performing 1s comple-
+ment arithmetic (as in the Internet checksum), let us compute a checksum by treating
+each character as a byte and adding the bytes together using 4-byte chunks at a time.
+Suppose Bob owes Alice \$100.99 and sends an IOU to Alice consisting of the text
+string “IOU100.99BOB.” The ASCII representation (in hexadecimal notation) for
+these letters is 49,4F,55,31,30,30,2E,39,39,42,4F,42.\newline
+
+\includegraphics[scale=0.5]{hashpic}\newline
+\includegraphics[scale=0.5]{checksum}\newline
+The messages “IOU100.99BOB” and
+“IOU900.19BOB” have the same checksum. Thus, this simple checksum algorithm
+violates the requirement above. Given the original data, it is simple to find another
+set of data with the same checksum. Clearly, for security purposes, we are going to
+need a more powerful hash function than a checksum.
+The MD5 hash algorithm of Ron Rivest is in wide use today.
+It computes a 128-bit hash in a four-step process consisting of a padding step
+(adding a one followed by enough zeros so that the length of the message satisfies
+certain conditions), an append step (appending a 64-bit representation of the mes-
+sage length before padding), an initialization of an accumulator, and a final loop-
+ing step in which the message’s 16-word blocks are processed (mangled) in four
+rounds.
+The second major hash algorithm in use today is the Secure Hash Algorithm
+(SHA-1) . This algorithm is based on principles similar to those used
+in the design of MD4 , the predecessor to MD5. SHA-1, a US federal
+standard, is required for use whenever a cryptographic hash algorithm is needed for
+federal applications. It produces a 160-bit message digest. The longer output length
+makes SHA-1 more secure.
+}
 
 \subsection{Asymmetric Key Cryptography:}
-\Large{Under this system a pair of keys is used to encrypt and decrypt information. A public key is used for encryption and a private key is used for decryption. Public key and Private Key are different. Even if the public key is known by everyone the intended receiver can only decode it because he alone knows the private key.}
+\Large{Under this system a pair of keys is used to encrypt and decrypt information. A public key is used for encryption and a private key is used for decryption. Public key and Private Key are different. Even if the public key is known by everyone the intended receiver can only decode it because he alone knows the private key.Later we will discuss broadly. }
 
 
 \section{History of cryptography}
@@ -207,6 +393,52 @@ transformations of this type (one of these is $C \equiv P\pmod{26}$ obtained whe
 b = 0). If the relationship between plaintext and ciphertext is described above then the inverse relationship is given by
 $$P \equiv a^*(C-b)\pmod{26}$$ 
 where $a^*$ is an inverse of a (mod 26), which can be found using the congruence $$a^* \equiv a^{\phi(26)-1} =a^{11}\pmod{26}$$.
+\begin{exmp}
+To encrypt the message
+\begin{center}
+\LARGE{APPLIED MATHEMATICS} 
+\end{center}
+Converting the letters into their numerical equivalents, we obtain\newline
+
+1 16 16 12 9 5 4 -64(this is the space value output by programe) 13 1 20 8 5 13 1 20 9 3 19\newline
+
+Using the Caesar transformation $C\equiv P+3 (mod \;26)$, this become\newline
+4  19  19  15  12  8  7  -61(this is the space value output by programe), 16  4  23  11  8  16  4  23 12 6 22 \newline
+
+Translating back to letters, we have\newline
+\begin{center}
+\LARGE{DSSOLHG PDWKHPDWLFV} \newline
+\end{center}
+This is the encrypted message.
+\end{exmp}
+
+\begin{exmp}
+To decrypt the message
+\begin{center}
+\LARGE{DSSOLHG PDWKHPDWLFV}
+\end{center}
+encrypted by the Caesar cipher, we first change these letters into their numerical equiv­
+alents, to obtain \newline
+4  19  19  15  12  8  7  -61(this is the space value output by programe), 16  4  23  11  8  16  4  23 12 6 22 \newline
+Next, we perform the transformation  $P\equiv C+3 (mod \;26)$ to change this to plaintext,and we obtain \newline
+1 16 16 12 9 5 4 -64(this is the space value output by programe) 13 1 20 8 5 13 1 20 9 3 19\newline
+
+We translate this back to letters and recover the plaintext message.\newline
+\begin{center}
+\LARGE{APPLIED MATHEMATICS} 
+\end{center}
+
+\end{exmp}
+
+Python code that was used for generating that code given below\newline
+\includegraphics[scale=.8]{1stcode}\newline
+\includegraphics[scale=.8]{2ndcode}\newline
+\includegraphics[scale=.8]{3rdcode}\newline
+
+
+
+
+}
 
 \chapter{Application Of Cryptography }
 \section{Network Security}
@@ -317,8 +549,10 @@ The bit pattern corresponding to this ciphertext c is sent to Bob.}
 $$m=c^d\;mod\;n$$}
 \end{itemize}
 
-As a simple example of RSA, suppose Bob chooses p = 5 and q = 7. (Admittedly,
-these values are far too small to be secure.) Then n = 35 and z = 24. Bob chooses
+\begin{exmp}
+suppose Bob chooses p = 5 and q = 7.
+\end{exmp}
+Then n = 35 and z = 24. Bob chooses
 e = 5, since 5 and 24 have no common factors. Finally, Bob chooses d = 29, since
 5 * 29 - 1 (that is, ed - 1) is exactly divisible by 24. Bob makes the two values, n = 35
 and e = 5, public and keeps the value d = 29 secret. Observing these two public
@@ -360,7 +594,15 @@ reverse the order of encryption and decryption, performing the decryption operat
 first and then applying the encryption operation—we also obtain the original value,
 m. This wonderful result follows immediately from the modular arithmetic:
 $$(m^d \;mod\; n)^e\; mod \;n = m^{de}\; mod \;n = m^{ed}\; mod\; n = (m^e\; mod\; n)^d \;mod \;n$$
-
+The security of RSA relies on the fact that there are no known algorithms for
+quickly factoring a number, in this case the public value n, into the primes p and q. If
+one knew p and q, then given the public value e, one could easily compute the secret
+key, d. On the other hand, it is not known whether or not there exist fast algorithms for
+factoring a number, and in this sense, the security of RSA is not guaranteed. With recent
+advances in quantum computing, and published fast factoring algorithms for quantum
+computers, there are concerns that RSA may not be secure forever. But
+the practical realization of these algorithms still appears to be far in the future.
 }
+
 
 \end{document}

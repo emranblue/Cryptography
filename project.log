@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.7.31)  19 AUG 2022 10:02
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.7.31)  19 AUG 2022 19:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,13 +128,25 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks26
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2019/11/15 version 4.22 text color boxes
 
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks21
+\pgfutil@everybye=\toks27
 \pgfutil@tempdima=\dimen154
 \pgfutil@tempdimb=\dimen155
 
@@ -156,12 +168,12 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks22
-\pgfkeys@temptoks=\toks23
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks24
+\pgfkeys@tmptoks=\toks30
 ))
 \pgf@x=\dimen156
 \pgf@y=\dimen157
@@ -179,9 +191,9 @@ ex
 \c@pgf@countb=\count188
 \c@pgf@countc=\count189
 \c@pgf@countd=\count190
-\t@pgf@toka=\toks25
-\t@pgf@tokb=\toks26
-\t@pgf@tokc=\toks27
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
 \pgf@sys@id@count=\count191
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
@@ -235,9 +247,9 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 \pgfmath@dimen=\dimen166
 \pgfmath@count=\count195
 \pgfmath@box=\box48
-\pgfmath@toks=\toks28
-\pgfmath@stack@operand=\toks29
-\pgfmath@stack@operation=\toks30
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -372,8 +384,8 @@ Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 )) (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks31
-\verbatim@line=\toks32
+\every@verbatim=\toks37
+\verbatim@line=\toks38
 \verbatim@in@stream=\read3
 )
 (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
@@ -419,8 +431,8 @@ Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen193
 \pgffor@skip=\dimen194
-\pgffor@stack=\toks33
-\pgffor@toks=\toks34
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
@@ -506,7 +518,7 @@ Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count290
 \lst@gtempboxa=\box71
-\lst@token=\toks35
+\lst@token=\toks41
 \lst@length=\count291
 \lst@currlwidth=\dimen263
 \lst@column=\count292
@@ -575,30 +587,32 @@ File: tikzlibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 File: pgflibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '4.22'
-)) (./project.aux)
+))
+\c@exmp=\count299
+ (./project.aux)
 \openout1 = `project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
-.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+1.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -635,12 +649,12 @@ LaTeX Font Info:    ... okay on input line 6.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count299
+\c@lstlisting=\count300
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks36
-\inpenc@posthook=\toks37
+\inpenc@prehook=\toks42
+\inpenc@posthook=\toks43
 ) (./project.toc)
 \tf@toc=\write6
 \openout6 = `project.toc'.
@@ -657,7 +671,7 @@ Chapter 1.
 File: crypto.png Graphic file (type bmp)
 <crypto.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
@@ -667,107 +681,181 @@ File: public_private.png Graphic file (type bmp)
 File: file_encryption.png Graphic file (type bmp)
 <file_encryption.png>
  [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 File: digital_sig.png Graphic file (type bmp)
 <digital_sig.png>
-[7] [8] [9]
+[7] [8]
+File: plant.png Graphic file (type bmp)
+<plant.png>
+ [9] [10]
+File: polycs.png Graphic file (type bmp)
+<polycs.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--155
+
+ []
+
+File: block.png Graphic file (type bmp)
+<block.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--217
+
+ []
+
+[11] [12] [13]
+File: newblock.png Graphic file (type bmp)
+<newblock.png>
+
+Overfull \hbox (22.72826pt too wide) in paragraph at lines 218--219
+[][] 
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 231--243
+
+ []
+
+File: hashpic.png Graphic file (type bmp)
+<hashpic.png>
+File: checksum.png Graphic file (type bmp)
+<checksum.png>
+[15] [16] [17]
 File: ceser.png Graphic file (type bmp)
 <ceser.png>
 
-Overfull \hbox (16.22977pt too wide) in paragraph at lines 107--129
+Overfull \hbox (16.22977pt too wide) in paragraph at lines 293--315
 []\TU/lmr/m/n/14.4 For 900 years the monoalphabetic substitution cipher was the
  strongest
  []
 
-[10]
+[18]
 File: al_kindi.png Graphic file (type bmp)
 <al_kindi.png>
- [11]
+ [19]
 File: enigma.png Graphic file (type bmp)
 <enigma.png>
- [12]
+ [20]
 File: rajewski.png Graphic file (type bmp)
 <rajewski.png>
- [13]
 File: table.png Graphic file (type bmp)
 <table.png>
- [14]
+ [21]
 File: table2.png Graphic file (type bmp)
 <table2.png>
 
-Overfull \hbox (23.28633pt too wide) in paragraph at lines 188--189
+Overfull \hbox (23.28633pt too wide) in paragraph at lines 374--375
  [] 
  []
 
-[15] [16]
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 405--407
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 420--425
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
+
+ []
+
+File: 1stcode.png Graphic file (type bmp)
+<1stcode.png>
+File: 2ndcode.png Graphic file (type bmp)
+<2ndcode.png>
+File: 3rdcode.png Graphic file (type bmp)
+<3rdcode.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--437
+
+ []
+
+[24] [25]
 Chapter 2.
 File: seccom.png Graphic file (type bmp)
 <seccom.png>
-[17
+[26
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 228--251
+Underfull \hbox (badness 10000) in paragraph at lines 460--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--251
+Underfull \hbox (badness 10000) in paragraph at lines 460--483
 
  []
 
-[18]
+[27]
 File: keygen.png Graphic file (type bmp)
 <keygen.png>
 
-Overfull \hbox (27.24513pt too wide) in paragraph at lines 252--253
+Overfull \hbox (27.24513pt too wide) in paragraph at lines 484--485
 [][] 
  []
 
-[19] [20]
+[28] [29]
 File: Rsatab.png Graphic file (type bmp)
 <Rsatab.png>
 File: drcp.png Graphic file (type bmp)
 <drcp.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--334
+Underfull \hbox (badness 10000) in paragraph at lines 555--568
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--334
+Underfull \hbox (badness 10000) in paragraph at lines 555--568
 
  []
 
-[21] [22]
+[30] [31]
 
-LaTeX Font Warning: Command \LARGE invalid in math mode on input line 346.
+LaTeX Font Warning: Command \LARGE invalid in math mode on input line 580.
 
-[23]
-Overfull \hbox (1.34387pt too wide) detected at line 362
+[32]
+Overfull \hbox (1.34387pt too wide) detected at line 596
 \OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 m[] mod n\OT1/cmr/m/n/14.4 )[] \OML/cmm/m
 /it/14.4 mod n \OT1/cmr/m/n/14.4 = \OML/cmm/m/it/14.4 m[] mod n \OT1/cmr/m/n/14
 .4 = \OML/cmm/m/it/14.4 m[] mod n \OT1/cmr/m/n/14.4 = (\OML/cmm/m/it/14.4 m[] m
 od n\OT1/cmr/m/n/14.4 )[] \OML/cmm/m/it/14.4 mod n
  []
 
-[24] (./project.aux) )
-(\end occurred inside a group at level 4)
+[33] (./project.aux) )
+(\end occurred inside a group at level 3)
 
-### simple group (level 4) entered at line 254 ({)
-### simple group (level 3) entered at line 196 ({)
-### simple group (level 2) entered at line 45 ({)
-### simple group (level 1) entered at line 12 ({)
+### simple group (level 3) entered at line 486 ({)
+### simple group (level 2) entered at line 50 ({)
+### simple group (level 1) entered at line 17 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18992 strings out of 479819
- 412275 string characters out of 5895846
- 698699 words of memory out of 5000000
- 35774 multiletter control sequences out of 15000+600000
- 534942 words of font info for 44 fonts, out of 8000000 for 9000
+ 19160 strings out of 479819
+ 414292 string characters out of 5895846
+ 715991 words of memory out of 5000000
+ 35936 multiletter control sequences out of 15000+600000
+ 534950 words of font info for 45 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 64i,6n,103p,1242b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,6n,103p,1242b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (24 pages).
+Output written on project.pdf (33 pages).
